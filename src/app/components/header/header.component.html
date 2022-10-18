@@ -1,0 +1,16 @@
+<section>
+    <div class="img-logo">
+        <img src="assets/img/1200px-LogoBIS-01.webp" alt="">
+    </div>
+    <div class="menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logOut()">
+                <mat-icon>logout</mat-icon>
+                <span>log out</span>
+            </button>
+        </mat-menu>
+    </div>
+</section>

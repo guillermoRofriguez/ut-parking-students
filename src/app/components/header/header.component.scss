@@ -1,0 +1,24 @@
+section{
+    display: flex;
+    justify-content: space-between;
+    background-color: #d5d5d5;
+    align-items: center;
+    padding: 17px 47px;
+    .img-logo{
+        width: 17em;
+        img{
+            width: 100%;
+        }
+    }
+    .menu{
+        padding: 12px;
+    }
+}
+
+::ng-deep #cdk-overlay-0{
+    display: flex;
+    justify-content: flex-end;
+    #mat-menu-panel-0{
+        width: 50%;
+    }
+}

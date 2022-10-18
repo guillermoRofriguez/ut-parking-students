@@ -1,0 +1,22 @@
+<section>
+    <div class="component">
+        <div class="img">
+            <img src="assets/img/parking-smal.webp" alt="img login">
+        </div>
+        <div class="email-password">
+            <div class="title">
+                <h2>Sing in</h2>
+            </div>
+            <div class="inpust-email-password">
+                <form style="display: contents;" [formGroup]="loginFrom" (keyup.enter)="login()" novalidate>
+                    <input type="email" #email formControlName="email" placeholder="email">
+                    <input type="password" #password formControlName="password" placeholder="password">
+                </form>
+            </div>
+            <div class="buttons">
+                <button (click)="login()" mat-raised-button>Loggin</button>
+                <button (click)="logOut()">Register</button>
+            </div>
+        </div>
+    </div>
+</section>

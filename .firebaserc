@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ut-parking-921b5"
+  },
+  "targets": {
+    "ut-parking-921b5": {
+      "hosting": {
+        "ut-parking-student": [
+          "ut-parking-users"
+        ]
+      }
+    }
+  }
+}
