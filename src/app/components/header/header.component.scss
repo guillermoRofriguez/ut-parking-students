@@ -1,16 +1,12 @@
 section{
-    margin: 2%;
-    margin-right: 10%;
-    margin-left: 10%;
     display: flex;
     justify-content: space-between;
     background-color: #d5d5d5;
-    align-items: center;
-    padding: 17px 47px;
     .img-logo{
         width: 17em;
         img{
-            width: 100%;
+            width: 72%;
+            padding: 0 0 0 18%;
         }
     }
     .menu{

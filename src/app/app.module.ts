@@ -17,6 +17,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HeaderComponent } from './components/header/header.component';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import {MatTableModule} from '@angular/material/table';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatTableModule} from '@angular/material/table';
     LoginComponent,
     DashboardComponent,
     HeaderComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
