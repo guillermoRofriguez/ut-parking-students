@@ -6,8 +6,8 @@ section {
       padding: 4em 0 0;
       .img {
         width: 72%;
-          display: flex;
-          justify-content: center;
+        display: flex;
+        justify-content: center;
         img {
           width: 78%;
           padding: 10em 0;
@@ -22,6 +22,7 @@ section {
         width: 100%;
         .title {
           h2 {
+            text-align: center;
             font-size: 2em;
             font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
               sans-serif;
