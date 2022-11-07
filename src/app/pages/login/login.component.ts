@@ -12,9 +12,11 @@ export class LoginComponent implements OnInit {
   public loginFrom: FormGroup
   public error = false
   public errorMessage = '';
+  public loading: boolean;
   public isSignedIn: boolean = false;
   public authState: Authenticated = {};
   constructor(private fb: FormBuilder,private autService: AuthService) {
+    this.loading = false;
     this.loginFrom = this.fb.group ({
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['',Validators.required]
@@ -22,6 +24,9 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    setTimeout(()=>{
+      this.loading = true;
+    }, 5000)
   }
 
 

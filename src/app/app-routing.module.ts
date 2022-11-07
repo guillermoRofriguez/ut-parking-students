@@ -4,12 +4,14 @@ import { AuthGuard } from './auth.guard';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegistervehiculoComponent } from './pages/registervehiculo/registervehiculo.component';
 
 const routes: Routes = [ 
   {path: '', redirectTo: '/sing-in', pathMatch: 'full'},
   {path: 'sing-in', component:LoginComponent},
   {path: 'dashboard', component:DashboardComponent, canActivate:[AuthGuard]},
-  {path: 'all-user', component: AllUsersComponent, canActivate:[AuthGuard]}
+  {path: 'all-user', component: AllUsersComponent, canActivate:[AuthGuard]},
+  {path: 'register-vehiculo', component: RegistervehiculoComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
