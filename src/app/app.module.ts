@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
@@ -18,6 +21,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import {MatTableModule} from '@angular/material/table';
 import { RegisterComponent } from './pages/register/register.component';
+import {RegistervehiculoComponent} from './pages/registervehiculo/registervehiculo.component'
 
 @NgModule({
   declarations: [
@@ -26,9 +30,13 @@ import { RegisterComponent } from './pages/register/register.component';
     DashboardComponent,
     HeaderComponent,
     AllUsersComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistervehiculoComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
+    MatInputModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
