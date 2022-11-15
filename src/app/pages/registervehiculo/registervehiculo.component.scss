@@ -6,6 +6,7 @@
     .row{
         margin: 2%;
         display: flex;
+        gap: 22px;
         flex-direction: column;
         .vehiculo{
             display: inline;
@@ -31,4 +32,8 @@
         color: white;
         }
     }
+}
+
+::ng-deep mat-form-field{
+    width: 100%;
 }

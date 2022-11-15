@@ -8,7 +8,7 @@ import { FormBuilder, FormControl, FormGroup, Validators  } from '@angular/forms
 })
 export class RegistervehiculoComponent implements OnInit {
   public form!: FormGroup
-  info: boolean = false 
+  public info: boolean = false
 
   constructor() {
     this.form = new FormGroup({
@@ -29,5 +29,18 @@ export class RegistervehiculoComponent implements OnInit {
     return this.form.controls[campo].hasError('required') && this.form.controls[campo].touched
   }
 
+  register(even: any){
+    this.info = false
+    if(this.form.value == undefined || this.form.value == null){
+      this.info = true
+       return
+    }
+    try {
+      
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
 
 }
