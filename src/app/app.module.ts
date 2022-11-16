@@ -24,6 +24,7 @@ import { AllUsersComponent } from './components/all-users/all-users.component';
 import {MatTableModule} from '@angular/material/table';
 import { RegisterComponent } from './pages/register/register.component';
 import {RegistervehiculoComponent} from './pages/registervehiculo/registervehiculo.component'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import {RegistervehiculoComponent} from './pages/registervehiculo/registervehicu
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     MatIconModule,
