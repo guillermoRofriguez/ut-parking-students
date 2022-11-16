@@ -1,11 +1,15 @@
 import { UpperCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+<<<<<<< HEAD
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { UsersService } from 'src/app/services/user/users.service';
 import { VehiculosService } from 'src/app/services/vehiculo/vehiculos.service';
 import Swal from 'sweetalert2';
+=======
+import { AuthService } from 'src/app/services/auth/auth.service';
+>>>>>>> e8515a5 (baje cambios)
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +23,7 @@ export class DashboardComponent implements OnInit {
   // matcher = new MyErrorStante
   constructor(private authService: AuthService, private auth: AngularFireAuth, private userService:UsersService, private veiculoService: VehiculosService) { }
 
+<<<<<<< HEAD
   async ngOnInit() {
     let res = this.authService.isAutenticated()
     let userUDI: any = (await res).user
@@ -169,5 +174,16 @@ export class DashboardComponent implements OnInit {
   }
 
 >>>>>>> af66bc3 (agregar la clave en la alerta de liveracion)
+=======
+  constructor(private authService: AuthService, private auth: AngularFireAuth) { }
+
+  async ngOnInit() {
+    // this.auth.
+    let res = this.authService.isAutenticated()
+    console.log(res); 
+    
+  }
+
+>>>>>>> e8515a5 (baje cambios)
 
 }

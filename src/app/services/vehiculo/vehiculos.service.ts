@@ -8,11 +8,15 @@ import { environment } from 'src/environments/environment';
 })
 export class VehiculosService {
 
+<<<<<<< HEAD
   private registerVehiculoURL: string  = `${environment.URL_API}/register/vehiculo`;
   private findClaveURL: string = `${environment.URL_API}/key/clave-send`;
   private insertUserURL: string = `${environment.URL_API}/key/inser-user`;
   private inserClaveToUSerURL: string = `${environment.URL_API}/key/inser-clave-to-user`
 
+=======
+  private registerVehiculoURL: string  = `${environment.URL_API}/register/vehiculo`
+>>>>>>> e8515a5 (baje cambios)
   constructor(private router: Router, private http: HttpClient) { }
   
   async registerVeiculo(vehiculo: any){
@@ -25,6 +29,7 @@ export class VehiculosService {
     }
   }
 
+<<<<<<< HEAD
   async findClave(uid: string){
     try {
       const response = await this.http.post<{code: number, message: string, data: any}>(this.findClaveURL,{uid}).toPromise();
@@ -54,6 +59,9 @@ export class VehiculosService {
       throw error
     }
   }
+=======
+
+>>>>>>> e8515a5 (baje cambios)
 
 
 }
