@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   async ngOnInit() {
     // this.auth.
     let res = this.authService.isAutenticated()
-    console.log(res); 
+    console.log((await res).user); 
     
   }
 
