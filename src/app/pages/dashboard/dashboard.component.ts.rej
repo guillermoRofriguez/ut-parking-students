@@ -1,0 +1,22 @@
+diff a/src/app/pages/dashboard/dashboard.component.ts b/src/app/pages/dashboard/dashboard.component.ts	(rejected hunks)
+@@ -42,6 +42,20 @@
+       this.claveString = true
+       return
+     }
++    if(this.userInfo.claveActive == true){
++      console.log('el usuario ya tiene clave');
++      Swal.fire({
++        icon:'info',
++        title: 'Error',
++        text:'Ya tienes asignado un estacionamiento',
++        timer:2000,
++        showConfirmButton: false,
++        customClass:{
++          container:'iosAlert'
++        }
++      })    
++      return
++    }
+     try {
+       let response = await this.veiculoService.findClave(clave)
+       let info =  response?.data

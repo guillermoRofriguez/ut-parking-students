@@ -1,0 +1,13 @@
+diff a/src/app/pages/login/login.component.html b/src/app/pages/login/login.component.html	(rejected hunks)
+@@ -4,9 +4,9 @@
+             <img src="https://media.giphy.com/media/ZO9b1ntYVJmjZlsWlm/giphy.gif">
+         </div>
+     </div> -->
+-    <div *ngIf="loading">
++    <!-- <div *ngIf="loading">
+         sesión iniciada
+-    </div>
++    </div> -->
+     <div class="component">
+         <div class="img">
+             <img src="assets/img/parking-smal.webp" alt="img login">
