@@ -42,6 +42,20 @@ export class DashboardComponent implements OnInit {
       this.claveString = true
       return
     }
+    if(this.userInfo.claveActive == true){
+      console.log('el usuario ya tiene clave');
+      Swal.fire({
+        icon:'info',
+        title: 'Error',
+        text:'Ya tienes asignado un estacionamiento',
+        timer:2000,
+        showConfirmButton: false,
+        customClass:{
+          container:'iosAlert'
+        }
+      })    
+      return
+    }
     try {
       let response = await this.veiculoService.findClave(clave)
       let info =  response?.data
@@ -70,6 +84,7 @@ export class DashboardComponent implements OnInit {
       }
       else{
         this.inserUser(clave, this.userInfo)
+        this.insertClaveToUser(clave)
         Swal.fire({
           icon: 'success',
           // title: 'El espacio se agrego correctamente',
@@ -95,6 +110,16 @@ export class DashboardComponent implements OnInit {
     try {
       let insertUser = await this.veiculoService.inserUser(uid, userInfo)
       console.log(insertUser);
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
+
+  async insertClaveToUser(clave: string){
+    try {
+      let insertClaveUser = await this.veiculoService.insertClaveToUser(this.userInfo.uid ,clave)
+      console.log(insertClaveUser);
       
     } catch (error) {
       console.log(error);
