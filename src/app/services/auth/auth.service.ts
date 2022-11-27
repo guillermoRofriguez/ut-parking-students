@@ -68,7 +68,7 @@ export class AuthService {
       console.log(email);
       var ref = await this.afs.collection('Users', res => res.where('email', '==', email)).get().toPromise()
       console.log(ref?.docs);
-      if(ref?.docs[0].exists != true){
+      if(ref?.docs[0]?.exists != true){
         console.log('entra if');
         
         Swal.fire({

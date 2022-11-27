@@ -1,1 +1,36 @@
 <app-header></app-header>
+<section>
+    <div class="componente">
+        <!-- <div class="img">
+            <img src="assets/img/parking-smal.webp" alt="img login">
+        </div> -->
+        <div class="dashboard">
+            <div class="name">
+                <!-- <mat-icon>person_outline</mat-icon> -->
+                <h2>Bienvenido <strong>{{userInfo?.name}}</strong></h2>
+            </div>
+            <div class="matricula">
+                <h2>Matricula: <strong>{{ userInfo?.matricula}}</strong></h2>
+            </div>
+        </div>
+
+        <div class="insert">
+            <span style="color: red; font-size: 12px;" *ngIf="claveString == true">
+                Ingresa una clave
+            </span>
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Codigo</mat-label>
+                    <input type="text" matInput [formControl]="form" placeholder="CCCC" style="text-transform:uppercase">
+                    <mat-error *ngIf="form.hasError('required') || claveString == false">
+                        Por favor ingresa el <strong>Codigo</strong>
+                    </mat-error>
+                </mat-form-field>
+            </form>
+            
+            <button (click)="sendClave(form.value)">
+                Ingresar clave
+            </button>
+        </div>
+    </div>
+</section>

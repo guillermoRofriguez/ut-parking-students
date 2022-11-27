@@ -1,0 +1,61 @@
+<section>
+    <app-header></app-header>
+    <div class="section" >
+        <h1>Registrar vehiculo</h1>
+        <div [formGroup]="form">
+            <span *ngIf="info == true">
+                <h1 style="color: red; font-size: 12px; font-family: sans-serif;">Por favor llenar todos los campos </h1>
+            </span>
+            <div class="row">
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select an option</mat-label>
+                        <mat-select disableRipple formControlName="type">
+                            <mat-option value="1">Carro</mat-option>
+                            <mat-option value="2">Moto</mat-option>
+                        </mat-select>
+                        <!-- <mat-label>Tipo de Vehiculo</mat-label>
+                        <input type="text" matInput id="tipo" formControlName="vehiculo">
+                        <mat-error *ngIf="campoRequired('vehiculo')">
+                            El Tipo de vehiculo <strong> es necesario</strong>
+                        </mat-error> -->
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Marca</mat-label>
+                        <input type="text" matInput id="marca" formControlName="marca">
+                        <mat-error *ngIf="campoRequired('marca')">
+                           La Marca<strong> es necesario</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Modelo</mat-label>
+                        <input type="text" matInput id="marca" formControlName="modelo">
+                        <mat-error *ngIf="campoRequired('modelo')">
+                           El Modelo<strong> es necesario</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Placa</mat-label>
+                        <input type="text" matInput id="marca" formControlName="placa">
+                        <mat-error *ngIf="campoRequired('placa')">
+                           La Placa<strong> es necesario</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button mat-raised-button (click)="register(form.value)">Registrar Vehiculo</button>
+        </div>
+    </div>
+
+</section>

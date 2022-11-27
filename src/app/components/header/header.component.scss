@@ -2,12 +2,11 @@ section{
     display: flex;
     justify-content: space-between;
     background-color: #d5d5d5;
-    align-items: center;
-    padding: 17px 47px;
     .img-logo{
         width: 17em;
         img{
-            width: 100%;
+            width: 50%;
+            padding: 0 0 0 15%;
         }
     }
     .menu{

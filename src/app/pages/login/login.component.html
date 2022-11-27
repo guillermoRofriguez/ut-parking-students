@@ -1,11 +1,19 @@
 <section>
+    <!-- <div class="cargar" *ngIf="!loading">
+        <div class="spinners">
+            <img src="https://media.giphy.com/media/ZO9b1ntYVJmjZlsWlm/giphy.gif">
+        </div>
+    </div> -->
+    <!-- <div *ngIf="loading">
+        sesión iniciada
+    </div> -->
     <div class="component">
         <div class="img">
             <img src="assets/img/parking-smal.webp" alt="img login">
         </div>
         <div class="email-password">
             <div class="title">
-                <h2>Sing in</h2>
+                <h2>Sign in</h2>
             </div>
             <div class="inpust-email-password">
                 <form style="display: contents;" [formGroup]="loginFrom" (keyup.enter)="login()" novalidate>
@@ -14,8 +22,7 @@
                 </form>
             </div>
             <div class="buttons">
-                <button (click)="login()" mat-raised-button>Loggin</button>
-                <button (click)="logOut()">Register</button>
+                <button (click)="login()" mat-raised-button>Login</button>
             </div>
         </div>
     </div>
