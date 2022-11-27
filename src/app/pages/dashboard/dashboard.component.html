@@ -16,14 +16,14 @@
 
         <div class="insert">
             <span style="color: red; font-size: 12px;" *ngIf="claveString == true">
-                Ingres una clave
+                Ingresa una clave
             </span>
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                     <mat-label>Codigo</mat-label>
                     <input type="text" matInput [formControl]="form" placeholder="CCCC" style="text-transform:uppercase">
                     <mat-error *ngIf="form.hasError('required') || claveString == false">
-                        Profavor ingresa el <strong>Codigo</strong>
+                        Por favor ingresa el <strong>Codigo</strong>
                     </mat-error>
                 </mat-form-field>
             </form>
