@@ -64,7 +64,7 @@ export class DashboardComponent implements OnInit {
           icon:'error',
           title:"Clave invalida",
           text:"Esta clave no existe",
-          timer: 2000,
+          timer: 2000,    
           showConfirmButton: false,
           customClass:{
             container: "iosAlert"
