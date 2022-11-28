@@ -115,7 +115,7 @@ export class DashboardComponent implements OnInit {
             container:'iosAlert'
           }
         }).then(result =>{
-          // location.reload()
+          location.reload()
         }
         )
       }
@@ -164,7 +164,7 @@ export class DashboardComponent implements OnInit {
     try {
       Swal.fire({
         title: "Liberar",
-        text: "¿Deseas liberar el espacio?",
+        text: "¿Deseas liberar el espacio "+  this.claveUSer  +"?",
         showCancelButton: true,
         cancelButtonText: "Cancelar",
         confirmButtonText: "Liberar",
