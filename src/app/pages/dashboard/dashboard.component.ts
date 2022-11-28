@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   claveString: boolean = false
   public userInfo: any
   form = new FormControl('',[Validators.required]);
+  public claveUSer!: string 
   // matcher = new MyErrorStante
   constructor(private authService: AuthService, private auth: AngularFireAuth, private userService:UsersService, private veiculoService: VehiculosService) { }
 
@@ -23,15 +24,32 @@ export class DashboardComponent implements OnInit {
     let res = this.authService.isAutenticated()
     let userUDI: any = (await res).user
     await this.getUserInfo(userUDI)
+    this.getClaveToUSer()
   }
 
   async getUserInfo(uidUser: string){
     try {
       let user =  await this.userService.getUSerInfo(uidUser)
       this.userInfo = user?.data
+      console.log(this.userInfo);
+      
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async getClaveToUSer(){
+    try {
+      let users = await this.veiculoService.getClaveToUSerUID(this.userInfo?.uid);
+      console.log(users?.data);
+      users?.data.forEach((element:any) => {
+        console.log(element);
+         this.claveUSer = element.uid
+      });
       
+    } catch (error) {
+      console.log(error);
+      throw error
     }
   }
 
@@ -59,6 +77,8 @@ export class DashboardComponent implements OnInit {
     try {
       let response = await this.veiculoService.findClave(clave)
       let info =  response?.data
+      console.log(info);
+      
       if(response?.data == null){
         Swal.fire({
           icon:'error',
@@ -70,7 +90,7 @@ export class DashboardComponent implements OnInit {
             container: "iosAlert"
           }
         })
-      }else if(info.disponible == true){
+      }else if(info.disponible == false){
         Swal.fire({
           icon: 'question',
           title: 'Ocupado',
@@ -109,7 +129,7 @@ export class DashboardComponent implements OnInit {
   async inserUser(uid: string,userInfo: any){
     try {
       let insertUser = await this.veiculoService.inserUser(uid, userInfo)
-      console.log(insertUser);
+      // console.log(insertUser);
     } catch (error) {
       console.log(error);
       throw error
@@ -119,8 +139,47 @@ export class DashboardComponent implements OnInit {
   async insertClaveToUser(clave: string){
     try {
       let insertClaveUser = await this.veiculoService.insertClaveToUser(this.userInfo.uid ,clave)
-      console.log(insertClaveUser);
+      // console.log(insertClaveUser);
       
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
+
+  async liberarEsctacinamiento(uid:string){
+    console.log(uid);
+    if(uid == undefined){
+     Swal.fire({
+      icon: "error",
+      text: "No tienes un estacionamiento asignado",
+      showConfirmButton: false,
+      timer: 3000,
+      customClass:{
+        container:"iosAlert"
+      }
+     }) 
+     return
+    }
+    try {
+      Swal.fire({
+        title: "Liberar",
+        text: "¿Deseas liberar el espacio?",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Liberar",
+        customClass:{
+          container: "iosAlert",
+          confirmButton: "red",
+          cancelButton: "blue"
+        }
+      }).then(result =>{
+        if(result.isConfirmed){
+          console.log('se confirmo');
+          this.veiculoService.liberarSpacio(uid)
+         location.reload() 
+        }
+      })
     } catch (error) {
       console.log(error);
       throw error

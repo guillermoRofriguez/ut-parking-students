@@ -12,6 +12,14 @@
             <div class="matricula">
                 <h2>Matricula: <strong>{{ userInfo?.matricula}}</strong></h2>
             </div>
+            <div class="estacionamiento">
+                <h2>Estacionamiento:
+                    <strong>
+                        <span *ngIf="claveUSer != undefined">{{claveUSer}}</span>
+                        <span *ngIf="claveUSer == undefined" style="color: red;">0</span>
+                    </strong> 
+                </h2>
+            </div>
         </div>
 
         <div class="insert">
@@ -27,10 +35,14 @@
                     </mat-error>
                 </mat-form-field>
             </form>
-            
-            <button (click)="sendClave(form.value)">
-                Ingresar clave
-            </button>
+            <div class="acciones">
+                <button (click)="sendClave(form.value)">
+                    Ingresar clave
+                </button>
+                <button (click)="liberarEsctacinamiento(claveUSer)">
+                    Liberar espacio
+                </button>
+            </div>
         </div>
     </div>
 </section>

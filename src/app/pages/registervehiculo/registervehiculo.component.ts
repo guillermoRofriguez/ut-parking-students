@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators  } from '@angular/forms';
+import { from, throwError } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { VehiculosService } from 'src/app/services/vehiculo/vehiculos.service';
 import Swal from 'sweetalert2';
@@ -12,6 +13,7 @@ import Swal from 'sweetalert2';
 export class RegistervehiculoComponent implements OnInit {
   public form!: FormGroup
   public info: boolean = false
+  userUDI:any
 
   constructor(private vehiculoService: VehiculosService, private isAut: AuthService) {
     this.form = new FormGroup({
@@ -22,7 +24,10 @@ export class RegistervehiculoComponent implements OnInit {
     })
    }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    let res = this.isAut.isAutenticated()
+    this.userUDI = (await res).user
+    
   }
   
   RegisterVehiculo(): void{
@@ -33,11 +38,13 @@ export class RegistervehiculoComponent implements OnInit {
   }
 
   register(even: any){
-    let user = this.isAut.isAutenticated()
-    console.log(user);
+   console.log(this.userUDI);
+   
+    console.log(this.form.invalid);
+    
     
     this.info = false
-    if(this.form.value == undefined || this.form.value == null){
+    if(this.form.invalid == true){
       this.info = true
        return
     }
@@ -58,7 +65,7 @@ export class RegistervehiculoComponent implements OnInit {
         console.log(result);
         if(result.isConfirmed == true){
           console.log(this.form.value);
-          this.vehiculoService.registerVeiculo(this.form.value)
+          this.vehiculoService.registerVeiculo(this.userUDI, this.form.value)
           location.reload()
         }
       })
@@ -70,6 +77,15 @@ export class RegistervehiculoComponent implements OnInit {
       console.log(error);
       throw error
     }
+  }
+
+  allVehiculos(){
+   try {
+    
+   } catch (error) {
+    console.log(error);
+    throw error
+   } 
   }
 
 }
