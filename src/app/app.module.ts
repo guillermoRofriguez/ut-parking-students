@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
 import { RegisterComponent } from './pages/register/register.component';
 import {RegistervehiculoComponent} from './pages/registervehiculo/registervehiculo.component'
 import { HttpClientModule } from '@angular/common/http';
+import { VeiculosComponent } from './pages/veiculos/veiculos.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     AllUsersComponent,
     RegisterComponent,
-    RegistervehiculoComponent
+    RegistervehiculoComponent,
+    VeiculosComponent
   ],
   imports: [
     CommonModule,
@@ -50,6 +54,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatTableModule,
     MatSelectModule,
+    MatPaginatorModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

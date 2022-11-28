@@ -12,7 +12,8 @@ export class VehiculosService {
   private insertUserURL: string = `${environment.URL_API}/key/inser-user`;
   private inserClaveToUSerURL: string = `${environment.URL_API}/key/inser-clave-to-user`;
   private getClaveToUSerUIDURL: string = `${environment.URL_API}/key/get-clave-id-user`;
-  private linerarEspacionURL: string = `${environment.URL_API}/key/liberar-estacionameinto`
+  private linerarEspacionURL: string = `${environment.URL_API}/key/liberar-estacionameinto`;
+  private getVehiculoUSerURL: string = `${environment.URL_API}/key/veiculos-user`;
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -92,6 +93,18 @@ export class VehiculosService {
     try {
       const response = await this.http.post<{code: number, message: string, data: any}>(this.linerarEspacionURL,{uid}).toPromise();
       return response 
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
+
+  async getVehiculoUser(uid:string){
+    console.log(uid);
+    
+    try {
+      const response = await this.http.post<{code:number, message: string, data:any}>(this.getVehiculoUSerURL,{uid}).toPromise();
+      return response
     } catch (error) {
       console.log(error);
       throw error

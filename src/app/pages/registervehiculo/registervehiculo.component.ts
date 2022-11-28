@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators  } from '@angular/forms';
+import { Router } from '@angular/router';
 import { from, throwError } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { VehiculosService } from 'src/app/services/vehiculo/vehiculos.service';
@@ -15,7 +16,7 @@ export class RegistervehiculoComponent implements OnInit {
   public info: boolean = false
   userUDI:any
 
-  constructor(private vehiculoService: VehiculosService, private isAut: AuthService) {
+  constructor(private vehiculoService: VehiculosService, private isAut: AuthService, private route: Router) {
     this.form = new FormGroup({
       type: new FormControl("", Validators.required),
       marca: new FormControl("",Validators.required),
@@ -79,13 +80,13 @@ export class RegistervehiculoComponent implements OnInit {
     }
   }
 
-  allVehiculos(){
-   try {
-    
-   } catch (error) {
-    console.log(error);
-    throw error
-   } 
-  }
+  // allVehiculos(){
+  //  try {
+  //   this.route.navigate(['/sing-in/'])
+  //  } catch (error) {
+  //   console.log(error);
+  //   throw error
+  //  } 
+  // }
 
 }

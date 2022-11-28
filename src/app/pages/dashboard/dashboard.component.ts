@@ -115,7 +115,7 @@ export class DashboardComponent implements OnInit {
             container:'iosAlert'
           }
         }).then(result =>{
-          location.reload()
+          // location.reload()
         }
         )
       }

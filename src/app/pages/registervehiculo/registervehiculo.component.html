@@ -55,7 +55,7 @@
 
         <div class="buttons">
             <button mat-raised-button (click)="register(form.value)">Registrar Vehiculo</button>
-            <button mat-raised-button (click)="allVehiculos()">Registrar Vehiculo</button>
+            <button mat-raised-button [routerLink]="['/vehiculos/',userUDI]">Vehiculos</button>
         </div>
     </div>
 
