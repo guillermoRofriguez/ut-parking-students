@@ -22,18 +22,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HeaderComponent } from './components/header/header.component';
 import { AllUsersComponent } from './components/all-users/all-users.component';
 import {MatTableModule} from '@angular/material/table';
-<<<<<<< HEAD
 import { RegisterComponent } from './pages/register/register.component';
 import {RegistervehiculoComponent} from './pages/registervehiculo/registervehiculo.component'
 import { HttpClientModule } from '@angular/common/http';
-=======
-<<<<<<< HEAD
-=======
-import { RegisterComponent } from './pages/register/register.component';
-import {RegistervehiculoComponent} from './pages/registervehiculo/registervehiculo.component'
-import { HttpClientModule } from '@angular/common/http';
->>>>>>> b50d5e8 (student)
->>>>>>> e8515a5 (baje cambios)
 
 @NgModule({
   declarations: [
