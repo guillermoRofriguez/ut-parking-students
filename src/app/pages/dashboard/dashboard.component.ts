@@ -127,5 +127,47 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
+=======
+  async liberarEsctacinamiento(uid:string){
+    console.log(uid);
+    if(uid == undefined){
+     Swal.fire({
+      icon: "error",
+      text: "No tienes un estacionamiento asignado",
+      showConfirmButton: false,
+      timer: 3000,
+      customClass:{
+        container:"iosAlert"
+      }
+     }) 
+     return
+    }
+    try {
+      Swal.fire({
+        title: "Liberar",
+        text: "¿Deseas liberar el espacio "+  this.claveUSer  +"?",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Liberar",
+        customClass:{
+          container: "iosAlert",
+          confirmButton: "red",
+          cancelButton: "blue"
+        }
+      }).then(result =>{
+        if(result.isConfirmed){
+          console.log('se confirmo');
+          this.veiculoService.liberarSpacio(uid)
+         location.reload() 
+        }
+      })
+    } catch (error) {
+      console.log(error);
+      throw error
+    }
+  }
+
+>>>>>>> af66bc3 (agregar la clave en la alerta de liveracion)
 
 }
